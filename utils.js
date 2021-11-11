@@ -1,4 +1,5 @@
 function print(str) {
+    str = JSON.stringify(str)
     var dom = document.createElement('div')
     dom.innerHTML = document.innerHTML || '' + ` ${str}`
     document.body.appendChild(dom)
@@ -38,7 +39,6 @@ Utils.prototype.isRenderEye = function (resData) {
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
         return false
     }
-    print(rightEye.y - leftEye.y)
     return true
 }
 Utils.prototype.style = function (data) {
@@ -64,6 +64,7 @@ function EyeUtils() {
 EyeUtils.prototype.getEye = function (data) {
     var rightEye = data[0]
     var leftEye = data[1]
+    print(rightEye)
     if (rightEye.x > leftEye.x) {
         a = rightEye
         rightEye = leftEye
