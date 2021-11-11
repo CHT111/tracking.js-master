@@ -27,6 +27,7 @@ Utils.prototype.render = function (event, context) {
 }
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
+    document.body.appendChild(`<div>${rightEye.y - leftEye.y}</div>`)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
         return false
