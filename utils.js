@@ -49,9 +49,9 @@ Utils.prototype.style = function (data) {
     video.setAttribute('width', finalWidth)
     console.log(video);
     setTimeout(() => {
-        // var finalHeight = finalWidth * 2 / 3
-        var video = document.getElementById('video');
-        var finalHeight = parseFloat(window.getComputedStyle(video).height)
+        var finalHeight = finalWidth * 3 / 4
+        // var video = document.getElementById('video');
+        // var finalHeight = parseFloat(window.getComputedStyle(video).height)
         console.log(finalHeight);
         console.log(finalHeight);
         canvas.setAttribute('width', finalWidth)
