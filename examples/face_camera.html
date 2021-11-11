@@ -39,7 +39,7 @@
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
-
+      
       var tracker = new tracking.ObjectTracker(['eye']);
       tracker.setInitialScale(1);
       tracker.setStepSize(5); //多久检测一次，越大越快

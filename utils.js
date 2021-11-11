@@ -7,7 +7,6 @@ Utils.prototype.shakeHead = function (data) {
 }
 Utils.prototype.isShakeHead = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
-    console.log(leftEye.x,rightEye.x);
 }
 Utils.prototype.render = function (event, context) {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -27,8 +26,8 @@ Utils.prototype.render = function (event, context) {
 }
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
-    var dom=document.createElement('div')
-    dom.innerHTML=document.innerHTML||''+` ${rightEye.y - leftEye.y}`
+    var dom = document.createElement('div')
+    dom.innerHTML = document.innerHTML || '' + ` ${rightEye.y - leftEye.y}`
     document.body.appendChild(dom)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
@@ -43,6 +42,12 @@ function EyeUtils() {
 EyeUtils.prototype.getEye = function (data) {
     var rightEye = data[0]
     var leftEye = data[1]
+    if (rightEye.x > leftEye.x) {
+        a = rightEye
+        rightEye = leftEye
+        leftEye = a
+    }
+    console.log(leftEye.x, rightEye.x);
     return { rightEye, leftEye }
 }
 var eyeUtils = new EyeUtils()
