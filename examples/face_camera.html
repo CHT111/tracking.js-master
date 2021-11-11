@@ -13,6 +13,19 @@
   <script src="assets/stats.min.js"></script>
   <script src="../utils.js"></script>
   <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .demo-container {
+      border-radius: 50%;
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
     video,
     canvas {
       position: absolute;
@@ -36,10 +49,11 @@
 
   <script>
     window.onload = function () {
+      utils.style()
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
-      
+
       var tracker = new tracking.ObjectTracker(['eye']);
       tracker.setInitialScale(1);
       tracker.setStepSize(5); //多久检测一次，越大越快

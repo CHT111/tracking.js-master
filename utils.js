@@ -33,14 +33,23 @@ Utils.prototype.render = function (event, context) {
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
 
-    print(rightEye.y - leftEye.y)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
         return false
     }
+    print(rightEye.y - leftEye.y)
     return true
 }
-
+Utils.prototype.style = function (data) {
+    var video = document.getElementById('video');
+    var canvas = document.getElementById('canvas');
+    var windowWidth = window.innerWidth
+    var finalWidth = windowWidth * .5
+    var finalHeight = finalWidth * 2 / 3
+    canvas.setAttribute('width', finalWidth)
+    canvas.setAttribute('height', finalHeight)
+    video.setAttribute('width', finalWidth)
+}
 function EyeUtils() {
     this.MAX_Y_OFFSET = 15
 }
@@ -52,7 +61,6 @@ EyeUtils.prototype.getEye = function (data) {
         rightEye = leftEye
         leftEye = a
     }
-    console.log(leftEye.x, rightEye.x);
     return { rightEye, leftEye }
 }
 var eyeUtils = new EyeUtils()
