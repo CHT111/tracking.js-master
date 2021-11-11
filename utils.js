@@ -46,17 +46,24 @@ Utils.prototype.style = function (data) {
     var canvas = document.getElementById('canvas');
     var windowWidth = window.innerWidth
     var finalWidth = windowWidth * .7
-    var finalHeight = finalWidth * 2 / 3
-    canvas.setAttribute('width', finalWidth)
-    canvas.setAttribute('height', finalHeight)
     video.setAttribute('width', finalWidth)
-    canvas.style.left = -(finalWidth - finalHeight) / 2 + 'px'
-    video.style.left = -(finalWidth - finalHeight) / 2 + 'px'
+    console.log(video);
+    setTimeout(() => {
+        // var finalHeight = finalWidth * 2 / 3
+        var video = document.getElementById('video');
+        var finalHeight = parseFloat(window.getComputedStyle(video).height)
+        console.log(finalHeight);
+        console.log(finalHeight);
+        canvas.setAttribute('width', finalWidth)
+        canvas.setAttribute('height', finalHeight)
+        canvas.style.left = -(finalWidth - finalHeight) / 2 + 'px'
+        video.style.left = -(finalWidth - finalHeight) / 2 + 'px'
 
-    var content = document.querySelector('.demo-container')
-    console.log(content);
-    content.style.width = finalHeight + 'px'
-    content.style.height = finalHeight + 'px'
+        var content = document.querySelector('.demo-container')
+        console.log(content);
+        content.style.width = finalHeight + 'px'
+        content.style.height = finalHeight + 'px'
+    }, 1000);
 }
 function EyeUtils() {
     this.MAX_Y_OFFSET = 15
