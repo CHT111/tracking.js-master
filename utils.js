@@ -47,7 +47,6 @@ Utils.prototype.style = function (data) {
     var windowWidth = window.innerWidth
     var finalWidth = windowWidth * .7
     video.setAttribute('width', finalWidth)
-    console.log(video);
     setTimeout(() => {
         var finalHeight = finalWidth * 3 / 4
         // var video = document.getElementById('video');
