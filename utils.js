@@ -30,7 +30,7 @@ Utils.prototype.isRenderEye = function (resData) {
     document.body.appendChild(`<div>${rightEye.y - leftEye.y}</div>`)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
-        return false
+        return true
     }
     return true
 }
