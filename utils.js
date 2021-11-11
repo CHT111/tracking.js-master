@@ -2,6 +2,7 @@ function print(str) {
     var dom = document.createElement('div')
     dom.innerHTML = document.innerHTML || '' + ` ${str}`
     document.body.appendChild(dom)
+    console.log(str);
 }
 
 // 图片是反着的
@@ -44,11 +45,18 @@ Utils.prototype.style = function (data) {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var windowWidth = window.innerWidth
-    var finalWidth = windowWidth * .5
+    var finalWidth = windowWidth * .7
     var finalHeight = finalWidth * 2 / 3
     canvas.setAttribute('width', finalWidth)
     canvas.setAttribute('height', finalHeight)
     video.setAttribute('width', finalWidth)
+    canvas.style.left = -(finalWidth - finalHeight) / 2 + 'px'
+    video.style.left = -(finalWidth - finalHeight) / 2 + 'px'
+
+    var content = document.querySelector('.demo-container')
+    console.log(content);
+    content.style.width = finalHeight + 'px'
+    content.style.height = finalHeight + 'px'
 }
 function EyeUtils() {
     this.MAX_Y_OFFSET = 15
