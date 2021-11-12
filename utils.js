@@ -21,7 +21,7 @@ Utils.prototype.render = function (event, context) {
     var resData = event.data
     if (resData.length != 2) { return }
     if (this.isRenderEye(resData)) {
-        print(resData);
+        console.log(resData);
         this.isShakeHead(resData)
         event.data.forEach(function (rect) {
             context.strokeStyle = '#a64ceb';
@@ -46,7 +46,8 @@ Utils.prototype.style = function (data) {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var windowWidth = window.innerWidth
-    var finalWidth = windowWidth * .5
+    var finalWidth = windowWidth * .7
+    var finalWidth = 320
     video.setAttribute('width', finalWidth)
     setTimeout(() => {
         var finalHeight = finalWidth * 3 / 4
