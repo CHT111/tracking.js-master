@@ -46,7 +46,7 @@ Utils.prototype.style = function (data) {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var windowWidth = window.innerWidth
-    var finalWidth = windowWidth * .7
+    var finalWidth = windowWidth * .5
     video.setAttribute('width', finalWidth)
     setTimeout(() => {
         var finalHeight = finalWidth * 3 / 4
