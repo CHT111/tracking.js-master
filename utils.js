@@ -34,9 +34,10 @@ Utils.prototype.render = function (event, context) {
 }
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
+    console.log(rightEye);
     print(rightEye.y-leftEye.y)
     // 纵向是否有问题
-    if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
+    if (Math.abs(rightEye.y - leftEye.y) > rightEye.height) {
         return false
     }
     return true
