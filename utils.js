@@ -21,7 +21,7 @@ Utils.prototype.render = function (event, context) {
     var resData = event.data
     if (resData.length != 2) { return }
     if (this.isRenderEye(resData)) {
-        console.log(resData);
+        print(resData);
         this.isShakeHead(resData)
         event.data.forEach(function (rect) {
             context.strokeStyle = '#a64ceb';
