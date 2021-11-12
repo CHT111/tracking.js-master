@@ -1,4 +1,4 @@
-function print(str) {
+function print(...str) {
     str = JSON.stringify(str)
     var dom = document.createElement('div')
     dom.innerHTML = document.innerHTML || '' + ` ${str}`
@@ -15,6 +15,8 @@ Utils.prototype.shakeHead = function (data) {
 }
 Utils.prototype.isShakeHead = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
+    print(rightEye.x,leftEye.x)
+    
 }
 Utils.prototype.render = function (event, context) {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -34,8 +36,6 @@ Utils.prototype.render = function (event, context) {
 }
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
-    console.log(rightEye);
-    print(rightEye.y-leftEye.y)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > rightEye.height) {
         return false
