@@ -15,8 +15,8 @@ Utils.prototype.shakeHead = function (data) {
 }
 Utils.prototype.isShakeHead = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
-    print(rightEye.x,leftEye.x)
-    
+    print({ leftEye: leftEye.x, rightEye: rightEye.x })
+
 }
 Utils.prototype.render = function (event, context) {
     context.clearRect(0, 0, canvas.width, canvas.height);
