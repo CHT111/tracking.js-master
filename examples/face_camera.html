@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>tracking.js - face with camera</title>
-  <link rel="stylesheet" href="assets/demo.css">
 
   <script src="../build/tracking.js"></script>
   <script src="../build/data/face-min.js"></script>
@@ -14,30 +13,45 @@
   <script src="assets/stats.min.js"></script>
   <script src="../utils.js"></script>
   <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .demo-container {
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      margin: 10vh auto 0;
+
+    }
+
     video,
     canvas {
-      margin-left: 230px;
-      margin-top: 120px;
       position: absolute;
+      transform: rotateY(180deg);
+    }
+
+    #stats,
+    .dg {
+      display: none;
     }
 
   </style>
 </head>
 
 <body>
-  <div class="demo-title">
-    <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
-  </div>
 
-  <div class="demo-frame">
-    <div class="demo-container">
-      <video id="video" width="320" height="240" preload autoplay loop muted></video>
-      <canvas id="canvas" width="320" height="240"></canvas>
-    </div>
+
+  <div class="demo-container">
+    <video id="video" width="320" preload autoplay loop muted></video>
+    <canvas id="canvas" width="320"></canvas>
   </div>
 
   <script>
     window.onload = function () {
+      utils.style()
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
@@ -51,7 +65,7 @@
         camera: true
       });
       tracker.on('track', function (event) {
-        utils.render(event,context)
+        utils.render(event, context)
       });
 
       var gui = new dat.GUI();
