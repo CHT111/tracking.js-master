@@ -21,7 +21,6 @@ Utils.prototype.render = function (event, context) {
     var resData = event.data
     if (resData.length != 2) { return }
     if (this.isRenderEye(resData)) {
-        console.log(resData);
         this.isShakeHead(resData)
         event.data.forEach(function (rect) {
             context.strokeStyle = '#a64ceb';
@@ -35,7 +34,7 @@ Utils.prototype.render = function (event, context) {
 }
 Utils.prototype.isRenderEye = function (resData) {
     var { rightEye, leftEye } = eyeUtils.getEye(resData)
-
+    print(rightEye.y-leftEye.y)
     // 纵向是否有问题
     if (Math.abs(rightEye.y - leftEye.y) > eyeUtils.MAX_Y_OFFSET) {
         return false
@@ -53,7 +52,7 @@ Utils.prototype.style = function (data) {
         var finalHeight = finalWidth * 3 / 4
         // var video = document.getElementById('video');
         // var finalHeight = parseFloat(window.getComputedStyle(video).height)
-      
+
         canvas.setAttribute('width', finalWidth)
         canvas.setAttribute('height', finalHeight)
         canvas.style.left = -(finalWidth - finalHeight) / 2 + 'px'
